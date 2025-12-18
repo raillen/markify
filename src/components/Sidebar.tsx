@@ -9,7 +9,8 @@ import {
     Palette,
     AlignLeft,
     Layout,
-    Check
+    Check,
+    X
 } from 'lucide-react';
 import type { StyleConfig, FontFamily, PaperSize } from '../types';
 
@@ -18,9 +19,10 @@ interface SidebarProps {
     setStyles: React.Dispatch<React.SetStateAction<StyleConfig>>;
     isOpen: boolean;
     setIsOpen: (open: boolean) => void;
+    isMobile?: boolean;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ styles, setStyles, isOpen, setIsOpen }) => {
+const Sidebar: React.FC<SidebarProps> = ({ styles, setStyles, isOpen, setIsOpen, isMobile = false }) => {
     const fonts: FontFamily[] = ['Inter', 'Lora', 'JetBrains Mono', 'system-ui'];
     const paperSizes: PaperSize[] = ['A3', 'A4', 'A5', 'Letter', 'Custom'];
 
@@ -39,19 +41,23 @@ const Sidebar: React.FC<SidebarProps> = ({ styles, setStyles, isOpen, setIsOpen 
 
     return (
         <aside
-            className={`relative transition-all duration-300 ease-in-out border-r border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-y-auto ${isOpen ? 'w-80' : 'w-0 border-none'
+            className={`relative transition-all duration-300 ease-in-out border-r border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-y-auto h-full ${isMobile
+                    ? 'w-80 max-w-[85vw]'
+                    : isOpen ? 'w-80' : 'w-0 border-none'
                 }`}
         >
-            <div className={`p-6 space-y-8 ${!isOpen && 'hidden'}`}>
+            <div className={`p-4 md:p-6 space-y-6 md:space-y-8 ${!isMobile && !isOpen && 'hidden'}`}>
+                {/* Header with close button */}
                 <div className="flex items-center justify-between">
                     <h2 className="text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500 flex items-center gap-2">
                         <Settings size={16} /> Configuration
                     </h2>
                     <button
                         onClick={() => setIsOpen(false)}
-                        className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-lg text-gray-500 transition-colors"
+                        className="p-2 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-lg text-gray-500 transition-colors"
+                        aria-label="Close sidebar"
                     >
-                        <ChevronLeft size={18} />
+                        {isMobile ? <X size={20} /> : <ChevronLeft size={18} />}
                     </button>
                 </div>
 
@@ -81,17 +87,17 @@ const Sidebar: React.FC<SidebarProps> = ({ styles, setStyles, isOpen, setIsOpen 
                                 type="range" min="12" max="24" step="1"
                                 value={styles.baseSize}
                                 onChange={(e) => handleStyleChange('baseSize', parseInt(e.target.value))}
-                                className="w-full h-1.5 bg-gray-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                                className="w-full h-2 bg-gray-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
                             />
                         </div>
                     </div>
                 </div>
 
-                {/* Header Sizes Section - Improved Layout */}
+                {/* Header Sizes Section */}
                 <div className="space-y-2 border-b border-gray-100 dark:border-zinc-800 pb-6">
                     <button
                         onClick={() => setIsHeadersOpen(!isHeadersOpen)}
-                        className="w-full flex items-center justify-between text-xs font-semibold text-gray-900 dark:text-zinc-100 hover:text-blue-600 transition-colors"
+                        className="w-full flex items-center justify-between text-xs font-semibold text-gray-900 dark:text-zinc-100 hover:text-blue-600 transition-colors py-2"
                     >
                         <div className="flex items-center gap-2">
                             <AlignLeft size={14} /> Headings Sizes
@@ -113,7 +119,7 @@ const Sidebar: React.FC<SidebarProps> = ({ styles, setStyles, isOpen, setIsOpen 
                                             type="number"
                                             value={styles[key] as number}
                                             onChange={(e) => handleStyleChange(key, parseInt(e.target.value))}
-                                            className="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg px-2 py-1 text-xs outline-none focus:ring-2 focus:ring-blue-500/20"
+                                            className="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg px-2 py-2 text-xs outline-none focus:ring-2 focus:ring-blue-500/20"
                                         />
                                     </div>
                                 );
@@ -134,7 +140,7 @@ const Sidebar: React.FC<SidebarProps> = ({ styles, setStyles, isOpen, setIsOpen 
                                 type="range" min="1" max="2.5" step="0.1"
                                 value={styles.lineHeight}
                                 onChange={(e) => handleStyleChange('lineHeight', parseFloat(e.target.value))}
-                                className="w-full h-1.5 bg-gray-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                                className="w-full h-2 bg-gray-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
                             />
                         </div>
                         <div>
@@ -143,19 +149,19 @@ const Sidebar: React.FC<SidebarProps> = ({ styles, setStyles, isOpen, setIsOpen 
                                 type="range" min="0" max="100" step="5"
                                 value={styles.margin}
                                 onChange={(e) => handleStyleChange('margin', parseInt(e.target.value))}
-                                className="w-full h-1.5 bg-gray-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                                className="w-full h-2 bg-gray-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
                             />
                         </div>
                     </div>
                 </div>
 
-                {/* Colors Section - Premium UI with react-colorful */}
+                {/* Colors Section */}
                 <div className="space-y-6">
                     <h3 className="text-xs font-semibold text-gray-900 dark:text-zinc-100 flex items-center gap-2">
                         <Palette size={14} /> Visual Style
                     </h3>
 
-                    {/* Presets */}
+                    {/* Presets - Responsive grid */}
                     <div className="grid grid-cols-2 gap-2">
                         {[
                             { name: 'Professional', text: '#1f2937', accent: '#3b82f6', bg: '#ffffff' },
@@ -170,24 +176,24 @@ const Sidebar: React.FC<SidebarProps> = ({ styles, setStyles, isOpen, setIsOpen 
                                     handleStyleChange('accentColor', preset.accent);
                                     handleStyleChange('backgroundColor', preset.bg);
                                 }}
-                                className="flex flex-col gap-1 p-2 rounded-lg border border-gray-100 dark:border-zinc-800 hover:border-blue-500 transition-all text-left group"
+                                className="flex flex-col gap-1 p-2 rounded-lg border border-gray-100 dark:border-zinc-800 hover:border-blue-500 transition-all text-left group active:scale-95"
                             >
                                 <span className="text-[9px] font-bold text-gray-400 group-hover:text-blue-500 uppercase">{preset.name}</span>
                                 <div className="flex gap-1">
-                                    <div className="w-3 h-3 rounded-full border border-gray-100" style={{ backgroundColor: preset.bg }} />
-                                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: preset.text }} />
-                                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: preset.accent }} />
+                                    <div className="w-4 h-4 rounded-full border border-gray-100" style={{ backgroundColor: preset.bg }} />
+                                    <div className="w-4 h-4 rounded-full" style={{ backgroundColor: preset.text }} />
+                                    <div className="w-4 h-4 rounded-full" style={{ backgroundColor: preset.accent }} />
                                 </div>
                             </button>
                         ))}
                     </div>
 
-                    {/* Visual Selectors */}
+                    {/* Color Pickers */}
                     <div className="space-y-4 pt-2">
                         {colorItems.map(item => (
                             <div key={item.key} className="space-y-2">
                                 <div
-                                    className="flex items-center justify-between cursor-pointer group"
+                                    className="flex items-center justify-between cursor-pointer group p-2 -mx-2 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-800/50 transition-colors"
                                     onClick={() => setActiveColorKey(activeColorKey === item.key ? null : item.key)}
                                 >
                                     <label className="text-[10px] uppercase font-bold text-gray-400 dark:text-zinc-500 cursor-pointer group-hover:text-blue-500 transition-colors">
@@ -196,7 +202,7 @@ const Sidebar: React.FC<SidebarProps> = ({ styles, setStyles, isOpen, setIsOpen 
                                     <div className="flex items-center gap-2">
                                         <span className="text-[10px] font-mono text-gray-400">{styles[item.key] as string}</span>
                                         <div
-                                            className={`w-6 h-6 rounded-md border border-gray-200 dark:border-zinc-700 shadow-sm transition-transform ${activeColorKey === item.key ? 'scale-110 ring-2 ring-blue-500/20' : ''}`}
+                                            className={`w-7 h-7 rounded-md border border-gray-200 dark:border-zinc-700 shadow-sm transition-transform ${activeColorKey === item.key ? 'scale-110 ring-2 ring-blue-500/20' : ''}`}
                                             style={{ backgroundColor: styles[item.key] as string }}
                                         />
                                     </div>
@@ -215,11 +221,11 @@ const Sidebar: React.FC<SidebarProps> = ({ styles, setStyles, isOpen, setIsOpen 
                                                     type="text"
                                                     value={styles[item.key] as string}
                                                     onChange={(e) => handleStyleChange(item.key, e.target.value)}
-                                                    className="flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 rounded-lg px-3 py-1.5 text-xs font-mono outline-none focus:ring-2 focus:ring-blue-500/20"
+                                                    className="flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 rounded-lg px-3 py-2 text-xs font-mono outline-none focus:ring-2 focus:ring-blue-500/20"
                                                 />
                                                 <button
                                                     onClick={() => setActiveColorKey(null)}
-                                                    className="p-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
+                                                    className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm active:scale-95"
                                                 >
                                                     <Check size={14} />
                                                 </button>
@@ -256,7 +262,7 @@ const Sidebar: React.FC<SidebarProps> = ({ styles, setStyles, isOpen, setIsOpen 
                                         type="number"
                                         value={styles.customWidth}
                                         onChange={(e) => handleStyleChange('customWidth', parseInt(e.target.value))}
-                                        className="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg px-3 py-1.5 text-xs outline-none focus:ring-2 focus:ring-blue-500/20"
+                                        className="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg px-3 py-2 text-xs outline-none focus:ring-2 focus:ring-blue-500/20"
                                     />
                                 </div>
                                 <div>
@@ -265,7 +271,7 @@ const Sidebar: React.FC<SidebarProps> = ({ styles, setStyles, isOpen, setIsOpen 
                                         type="number"
                                         value={styles.customHeight}
                                         onChange={(e) => handleStyleChange('customHeight', parseInt(e.target.value))}
-                                        className="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg px-3 py-1.5 text-xs outline-none focus:ring-2 focus:ring-blue-500/20"
+                                        className="w-full bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg px-3 py-2 text-xs outline-none focus:ring-2 focus:ring-blue-500/20"
                                     />
                                 </div>
                             </div>
