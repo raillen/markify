@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# ✨ Markify v2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Português](#-português) | [English](#-english)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🇧🇷 Português
 
-## React Compiler
+**Markify** é um editor de Markdown de alta fidelidade desenvolvido para transformar textos simples em documentos profissionais e elegantes. Com um foco em design premium e experiência do usuário, o Markify permite que você visualize, estilize e exporte seus documentos de forma intuitiva.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🚀 Funcionalidades Principais
 
-## Expanding the ESLint configuration
+- **Visualização em Tempo Real**: Veja exatamente como seu documento ficará enquanto escreve.
+- **Configurador de Estilo Avançado**:
+  - **Tipografia**: Escolha entre fontes premium (Inter, Lora, JetBrains Mono).
+  - **Headings**: Ajuste individual do tamanho de todos os níveis de cabeçalho (H1 a H6).
+  - **Layout**: Controle total sobre margens, altura de linha e tamanho do papel (A3, A4, A5, Letter ou Customizado).
+- **Seletor de Cores Visual**: Escolha cores para texto, fundo e detalhes através de uma interface integrada (sem diálogos do sistema).
+- **Exportação Profissional**: Gere arquivos **PDF** e **ODT** perfeitamente estilizados com um clique.
+- **Modo Escuro Avançado**: Uma interface escura elegante para reduzir a fadiga ocular.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🛠️ Tecnologias
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend**: React 19, TypeScript, Vite 7.
+- **Estilização**: Tailwind CSS v3.
+- **Markdown**: React-Markdown & Remark-GFM.
+- **Componentes**: Lucide React (Ícones), React-Colorful (Color Picker).
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 📦 Como instalar e rodar
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone o projeto: `git clone https://github.com/raillen/markify.git`
+2. Instale as dependências: `npm install`
+3. Inicie o servidor: `npm run dev`
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🇺🇸 English
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Markify** is a high-fidelity Markdown editor designed to transform simple text into professional, elegant documents. Focused on premium design and user experience, Markify allows you to visualize, style, and export your documents intuitively.
+
+### 🚀 Key Features
+
+- **Real-time Preview**: See exactly how your document looks as you type.
+- **Advanced Style Configurator**:
+  - **Typography**: Choose from curated fonts (Inter, Lora, JetBrains Mono).
+  - **Headings**: Individual size adjustment for all header levels (H1 to H6).
+  - **Layout**: Full control over margins, line height, and paper size (A3, A4, A5, Letter, or Custom).
+- **Visual Color Picker**: Choose colors for text, background, and accents through an integrated UI (no system dialogs).
+- **Professional Export**: Generate perfectly styled **PDF** and **ODT** files with one click.
+- **Premium Dark Mode**: A sleek dark interface to reduce eye strain.
+
+### 🛠️ Tech Stack
+
+- **Frontend**: React 19, TypeScript, Vite 7.
+- **Styling**: Tailwind CSS v3.
+- **Markdown**: React-Markdown & Remark-GFM.
+- **Components**: Lucide React (Icons), React-Colorful (Color Picker).
+
+### 📦 Installation and Setup
+
+1. Clone the project: `git clone https://github.com/raillen/markify.git`
+2. Install dependencies: `npm install`
+3. Start the dev server: `npm run dev`
+
+---
+
+### 🌐 Live Demo
+You can see Markify in action here: [https://raillen.github.io/markify/](https://raillen.github.io/markify/)
