@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://raillen.github.io/markify/sitemap.xml
