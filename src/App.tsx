@@ -414,15 +414,16 @@ function helloWorld() {
                 <button
                   onClick={() => setIsExportDropdownOpen(!isExportDropdownOpen)}
                   disabled={isExporting}
-                  className="btn-primary flex items-center gap-2"
+                  className={`flex items-center gap-2 px-2.5 py-1.5 rounded-[0.5rem] border border-zinc-200 shadow-sm transition-all duration-300 hover:bg-zinc-50 active:scale-[0.98] ${isExportDropdownOpen ? 'ring-2 ring-zinc-100 border-zinc-300' : ''}`}
+                  title={t.export}
                 >
                   {isExporting ? (
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <div className="w-4 h-4 border-2 border-[var(--accent-primary)] border-t-transparent rounded-full animate-spin" />
                   ) : (
-                    <Download size={16} />
+                    <Download size={14} className="text-zinc-500" />
                   )}
-                  <span className="hidden sm:inline">{t.export}</span>
-                  <ChevronDown size={14} className={`transition-transform duration-300 ${isExportDropdownOpen ? 'rotate-180' : ''}`} />
+                  <span className="text-xs font-semibold text-zinc-700 hidden sm:inline">{t.export}</span>
+                  <ChevronDown size={14} className={`text-zinc-400 transition-transform duration-300 ${isExportDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {isExportDropdownOpen && (
