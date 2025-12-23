@@ -1,4 +1,4 @@
-export type FontFamily = 'Inter' | 'Lora' | 'JetBrains Mono' | 'system-ui';
+export type FontFamily = 'Outfit' | 'Inter' | 'Lora' | 'JetBrains Mono' | 'system-ui';
 export type PaperSize = 'A3' | 'A4' | 'A5' | 'Letter' | 'Custom';
 
 export type StyleConfig = {
