@@ -10,21 +10,26 @@
 
 ### 🚀 Funcionalidades Principais
 
-- **Visualização em Tempo Real**: Veja exatamente como seu documento ficará enquanto escreve.
-- **Configurador de Estilo Avançado**:
-  - **Tipografia**: Escolha entre fontes premium (Inter, Lora, JetBrains Mono).
-  - **Headings**: Ajuste individual do tamanho de todos os níveis de cabeçalho (H1 a H6).
-  - **Layout**: Controle total sobre margens, altura de linha e tamanho do papel (A3, A4, A5, Letter ou Customizado).
-- **Seletor de Cores Visual**: Escolha cores para texto, fundo e detalhes através de uma interface integrada (sem diálogos do sistema).
-- **Exportação Profissional**: Gere arquivos **PDF** e **ODT** perfeitamente estilizados com um clique.
-- **Modo Escuro Avançado**: Uma interface escura elegante para reduzir a fadiga ocular.
+- **Editor Híbrido Avançado (Tiptap)**:
+  - **Modo Visual (WYSIWYG)**: Edição rica com suporte a negrito, itálico, listas, tabelas e mais.
+  - **Modo Código (Markdown)**: Alterne para ver e editar o código Markdown bruto instantaneamente.
+- **Conteúdo Rico**: Suporte completo para **Imagens**, **Tabelas**, **Checklists**, **Links** e **Citações**.
+- **Configurador de Estilo Premium**:
+  - **Tipografia**: Escolha entre fontes selecionadas (Inter, Lora, JetBrains Mono, Outfit).
+  - **Layout**: Controle total sobre margens, altura de linha e tamanho do papel (A3, A4, A5, Letter).
+  - **Cores de Destaque**: Personalize a interface com um sistema de cores de acento dinâmico.
+- **Internacionalização (i18n)**: Suporte nativo para **Português, Inglês, Espanhol, Mandarim e Japonês**.
+- **Exportação Universal**: Gere arquivos **PDF**, **Word (DOCX)**, **PNG**, **HTML** e **Markdown** com um clique.
+- **Sistema de Apoio**: Integração com **Ko-fi** e **Pix** para suporte ao desenvolvedor.
+- **Design Moderno**: Interface em Flat Design com glassmorphism sutil e modo escuro responsivo.
 
 ### 🛠️ Tecnologias
 
 - **Frontend**: React 19, TypeScript, Vite 7.
+- **Editor**: Tiptap (StarterKit, Markdown, Image, Table, TaskList).
 - **Estilização**: Tailwind CSS v3.
-- **Markdown**: React-Markdown & Remark-GFM.
-- **Componentes**: Lucide React (Ícones), React-Colorful (Color Picker).
+- **Exportação**: Docx, html-to-image.
+- **Ícones**: Lucide React.
 
 ### 📦 Como instalar e rodar
 
@@ -40,21 +45,26 @@
 
 ### 🚀 Key Features
 
-- **Real-time Preview**: See exactly how your document looks as you type.
-- **Advanced Style Configurator**:
-  - **Typography**: Choose from curated fonts (Inter, Lora, JetBrains Mono).
-  - **Headings**: Individual size adjustment for all header levels (H1 to H6).
-  - **Layout**: Full control over margins, line height, and paper size (A3, A4, A5, Letter, or Custom).
-- **Visual Color Picker**: Choose colors for text, background, and accents through an integrated UI (no system dialogs).
-- **Professional Export**: Generate perfectly styled **PDF** and **ODT** files with one click.
-- **Premium Dark Mode**: A sleek dark interface to reduce eye strain.
+- **Advanced Hybrid Editor (Tiptap)**:
+  - **Visual Mode (WYSIWYG)**: Rich editing with support for bold, italic, lists, tables, and more.
+  - **Code Mode (Markdown)**: Switch to view and edit raw Markdown code instantly.
+- **Rich Content**: Full support for **Images**, **Tables**, **Checklists**, **Links**, and **Blockquotes**.
+- **Premium Style Configurator**:
+  - **Typography**: Choose from curated fonts (Inter, Lora, JetBrains Mono, Outfit).
+  - **Layout**: Full control over margins, line height, and paper size (A3, A4, A5, Letter).
+  - **Accent Colors**: Personalize the UI with a dynamic accent color system.
+- **Internationalization (i18n)**: Native support for **Portuguese, English, Spanish, Mandarin, and Japanese**.
+- **Universal Export**: Generate **PDF**, **Word (DOCX)**, **PNG**, **HTML**, and **Markdown** files with one click.
+- **Support System**: Integrated **Ko-fi** and **Pix** links for developer support.
+- **Modern Design**: Flat Design interface with subtle glassmorphism and responsive dark mode.
 
 ### 🛠️ Tech Stack
 
 - **Frontend**: React 19, TypeScript, Vite 7.
+- **Editor**: Tiptap (StarterKit, Markdown, Image, Table, TaskList).
 - **Styling**: Tailwind CSS v3.
-- **Markdown**: React-Markdown & Remark-GFM.
-- **Components**: Lucide React (Icons), React-Colorful (Color Picker).
+- **Export**: Docx, html-to-image.
+- **Icons**: Lucide React.
 
 ### 📦 Installation and Setup
 
